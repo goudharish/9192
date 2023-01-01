@@ -1,12 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>harish goud</title>
-</head>
-<body>
-    
-</body>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Traversing</title>
+        <style>
+            #Grandfather{
+                border: 5px solid red;
+
+            }
+            #father{
+                border: 5px solid blue;
+            }
+            div.child1{
+                border: 5px dashed green;
+            }
+            div.child2{
+                border: 5px solid yellow;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="Grandfather"> Grandfather
+            <div id="father"> father
+                <div class="child1">
+                    child1
+                </div>
+                <div class="child2">child2
+
+                </div>
+            </div>
+        </div>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Nmae</th>
+                <th>Surname</th>
+                <td>
+                    <button>Action</button>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Harish</td>
+                    <td>Goud</td>
+                    <td>
+                        <button data-id="d1" onclick="Deletetd(this)">Deletd</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lucky</td>
+                    <td>singh</td>
+                    <td>
+                        <button data-id="d2" onclick="Deletetd(this)">Deletd</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dharmerd</td>
+                    <td>Dhangr</td>
+                    <td>
+                        <button data-id="d3" onclick="Deletetd(this)">Deletd</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rakesh</td>
+                    <td>Kahrol</td>
+                    <td>
+                        <button data-id="d4" onclick="Deletetd(this)">Deletd</button>
+                    </td>
+
+                </tr>
+        </tbody>
+        </table>
+        <script>
+            //i can write the js code before the closing body tag
+
+            let H1 = document.querySelector('.child1');
+            H1.innerHTML = 'Children1';
+            H1.style.border = '5px solid purple';
+            let gf = document.querySelector('.child2').closest('Grandfather');
+            console.log(gf);
+
+
+            let ltd = document.querySelector('table tbody tr td:last-child');
+            ltd.style.color = "red";
+            console.log(ltd);
+
+
+            let ltdf = document.querySelector('table tbody tr td:first-child');
+            ltd.style.color = "blue";
+            console.log(ltdf);
+
+            let = tbody = ltd.closest('tbody');
+            let tejtd = tbody.querySelector('tr:nth-child(2) td:first-child');
+            tejtd.style.color= "green";
+            console.log(tbody);
+
+
+        </script>
+        <script>
+            function Deletetd(elem){
+                console.log(elem);
+                let tr = elem.closest('tr');
+                tr.remove();
+                console.log(tr);
+            }
+        </script>
+        
+    </body>
 </html>
